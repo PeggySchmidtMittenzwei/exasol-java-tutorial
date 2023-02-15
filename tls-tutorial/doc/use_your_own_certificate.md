@@ -1,6 +1,12 @@
 # Using Your Own Certificates
 
-In this hands-on tutorial we will go over everything that is needed to get an `IMPORT` command running in a scenario where the TLS certificates involved are issued by yourself (or the organization you are part of).
+In this hands-on tutorial we will go over everything that is needed to get an `IMPORT` command running in a **one-way TLS-scenario** where the TLS certificates involved are issued by yourself (or the organization you are part of).
+
+* The client issues a session request to the server.
+* The server responds with a certificate, which contains its public key. This certificate comes from the server's keystore, which also contains the server's private key. The private key is never sent to the client.
+* For a signed cert, the client makes a request to the Certificate Authority (CA) to authenticate the certificate.
+* The client and server exchange several more messages to validate keys.
+* The client begins TLS data transfer with the server.
 
 ## Goals
 
